@@ -8,13 +8,12 @@ function getComputerChoice(choice) {
 
 // create a function that plays 1 round with 2 par: playerSelection and computerSelection
 function playRound(playerSelection, computerSelection) {
-    if (playerSelection === computerSelection) {
+    if (playerSelection.toLowerCase() === computerSelection.toLowerCase()) {
         return console.log("It\'s a tie!");
-        } else if (playerSelection === "rock" && computerSelection === "Scissor") {
             return console.log("You win! Rock destroys Scissor");
-        } else if (playerSelection === "scissor" && computerSelection === "Paper") {
+        } else if (playerSelection.toLowerCase() === "scissor" && computerSelection === "Paper") {
             return console.log("You win! Scissor cuts Paper");
-        } else if (playerSelection === "paper" && computerSelection === "Rock") {
+        } else if (playerSelection.toLowerCase() === "paper" && computerSelection === "Rock") {
             return console.log("You win! Paper covers Rock");
         } else {
             return console.log(`You loose, The Computer overpowered you with ${computerSelection}`);
