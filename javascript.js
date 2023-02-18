@@ -41,7 +41,7 @@ function playRound(playerSelection, computerSelection) {
 } 
 
 
-for (let i = 0; i < 3; i++) {
+for (let i = 0; i < 5; i++) {
     console.log(playRound());
 } if (playerScore > computerScore) {
     alert("Hurray! You won!");
