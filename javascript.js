@@ -1,4 +1,7 @@
 // create a function that randomly return either 'rock, paper or scissor'
+let computerScore = 0;
+let playerScore = 0;
+
 function getComputerChoice(choice) {
     choice = ["rock", "paper", "scissor"];
     const randomChoice = Math.floor(Math.random() * choice.length);
@@ -23,21 +26,33 @@ function playRound(playerSelection, computerSelection) {
         if (playerSelection === computerSelection)
             return "It\'s a tie!";
         else if (playerSelection === "rock" && computerSelection === "scissor") {
+            playerScore += 1;
             return "You win! Rock destroys Scissor";
         } else if (playerSelection === "scissor" && computerSelection === "paper") {
+            playerScore += 1;
             return "You win! Scissor cuts Paper";
         } else if (playerSelection === "paper" && computerSelection === "rock") {
+            playerScore += 1;
             return "You win! Paper covers Rock";
         } else {
+            computerScore += 1;
             return `You loose, The Computer overpowered you with ${computerSelection}`;
         }  
 } 
 
-for (let i = 0; i < 5; i++) {
-    console.log(playRound() + i);
-} 
 
-function game() {
+for (let i = 0; i < 3; i++) {
+    console.log(playRound());
+} if (playerScore > computerScore) {
+    alert("Hurray! You won!");
+} else if (playerScore = computerScore){
+    alert("TIE");
+} else {
+    alert("Oh no! The computer has beaten you up...");
+}
+
+
+function game(computerScore, playerScore) {
 
 }
 
@@ -56,8 +71,7 @@ function game() {
 
 
 
-let computerScore = 0;
-let playerScore = 0;
+
 
 //for(let i = 0; i < 5; i++) {
 //    console.log(playRound() + i) ;
