@@ -1,6 +1,7 @@
 // create a function that randomly return either 'rock, paper or scissor'
 let computerScore = 0;
 let playerScore = 0;
+let roundScore = "";
 
 function getComputerChoice(choice) {
     choice = ["rock", "paper", "scissor"];
@@ -24,25 +25,25 @@ function playRound(playerSelection, computerSelection) {
     computerSelection = getComputerChoice();
     playerSelection = getPlayerSelection();
         if (playerSelection === computerSelection)
-            return "It\'s a tie!";
+            return roundScore = "It\'s a tie!";
         else if (playerSelection === "rock" && computerSelection === "scissor") {
             playerScore += 1;
-            return "You win! Rock destroys Scissor";
+            return roundScore = "You win! Rock destroys Scissor";
         } else if (playerSelection === "scissor" && computerSelection === "paper") {
             playerScore += 1;
-            return "You win! Scissor cuts Paper";
+            return roundScore = "You win! Scissor cuts Paper";
         } else if (playerSelection === "paper" && computerSelection === "rock") {
             playerScore += 1;
-            return "You win! Paper covers Rock";
+            return roundScore = "You win! Paper covers Rock";
         } else {
             computerScore += 1;
-            return `You loose, The Computer overpowered you with ${computerSelection}`;
+            return roundScore = `You loose, The Computer overpowered you with ${computerSelection}`;
         }  
 } 
 
-
 for (let i = 0; i < 5; i++) {
     console.log(playRound());
+    alert(roundScore);
 } if (playerScore > computerScore) {
     alert("Hurray! You won!");
 } else if (playerScore = computerScore){
