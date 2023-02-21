@@ -46,10 +46,10 @@ for (let i = 0; i < 5; i++) {
     alert(roundScore);
 } if (playerScore > computerScore) {
     alert("Hurray! You won!");
-} else if (playerScore = computerScore){
-    alert("TIE");
-} else {
+} else if (playerScore < computerScore){
     alert("Oh no! The computer has beaten you up...");
+} else {
+    alert("TIE");
 }
 
 
