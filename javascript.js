@@ -1,14 +1,16 @@
-// create a function that randomly return either 'rock, paper or scissor'
+// set up the score and message to display in each round
 let computerScore = 0;
 let playerScore = 0;
 let roundScore = "";
 
+// create a function that randomly return either 'rock, paper or scissor'
 function getComputerChoice(choice) {
     choice = ["rock", "paper", "scissor"];
     const randomChoice = Math.floor(Math.random() * choice.length);
     return choice[randomChoice].toString();
 }
 
+// create a function that asks for user input and return the correct word according to str.length
 function getPlayerSelection(result) {
     result = prompt("Rock, paper or scissor?:");
     if (result.length === 4) {
@@ -41,6 +43,7 @@ function playRound(playerSelection, computerSelection) {
         }  
 } 
 
+// create a loop that plays 5 rounds of the playRound function with an alert message at the end with the winner
 for (let i = 0; i < 5; i++) {
     console.log(playRound());
     alert(roundScore);
