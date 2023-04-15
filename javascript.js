@@ -44,10 +44,12 @@ function playRound(playerSelection, computerSelection) {
 } 
 
 // create a loop that plays 5 rounds of the playRound function with an alert message at the end with the winner
-for (let i = 0; i < 5; i++) {
-    console.log(playRound());
-    alert(roundScore);
-} if (playerScore > computerScore) {
+// for (let i = 0; i < 5; i++) {
+//} 
+
+console.log(playRound());
+alert(roundScore);
+if (playerScore > computerScore) {
     alert("Hurray! You won!");
 } else if (playerScore < computerScore){
     alert("Oh no! The computer has beaten you up...");
@@ -56,9 +58,7 @@ for (let i = 0; i < 5; i++) {
 }
 
 
-function game(computerScore, playerScore) {
 
-}
 
 //ROCK 4 
 //PAPER 5
