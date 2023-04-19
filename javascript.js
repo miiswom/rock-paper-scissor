@@ -37,19 +37,20 @@ function playRound(playerSelection, computerSelection) {
     computerSelection = getComputerChoice();
     playerSelection = playerSelections;
         if (playerSelection === computerSelection)
-        div.textContent = 'It\'s a tie';
+            div.textContent = 'It\'s a tie';
         else if (playerSelection === "rock" && computerSelection === "scissor") {
-            playerScore += 1;
             div.textContent = "You win! Rock destroys Scissor";
+            pScore.textContent = playerScore += 1;
         } else if (playerSelection === "scissor" && computerSelection === "paper") {
-            playerScore += 1;
             div.textContent = "You win! Scissor cuts Paper";
+            pScore.textContent = playerScore += 1;
         } else if (playerSelection === "paper" && computerSelection === "rock") {
-            playerScore += 1;
             div.textContent = "You win! Paper covers Rock";
+            pScore.textContent = playerScore += 1;
         } else {
-            computerScore += 1;
             div.textContent = `You loose, The Computer overpowered you with ${computerSelection}`;
+            cScore.textContent = computerScore += 1;
+
         }  
 } 
 
@@ -76,4 +77,7 @@ if (playerScore > computerScore) {
 }
 };
 
-let div = document.getElementById('result');
+let div = document.getElementById('textResult');
+let cScore = document.getElementById('computerScore');
+let pScore = document.getElementById('playerScore');
+
