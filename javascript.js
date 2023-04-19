@@ -11,46 +11,44 @@ function getComputerChoice(choice) {
 }
 
 // create a function that asks for user input and return the correct word according to str.length
-function playerSelection() {
-    if (result.length === 4) {
-        return "rock";
-    } else if (result.length === 5) {
-        return "paper";
-    } else if (result.length === 7) {
-        return "scissor";
-    }
-}
 
 function playerSelectionIsRock() {
-    console.log('rock')
+    playerSelections = 'rock';
+    playRound();
 };
 
 function playerSelectionIsPaper() {
-    console.log('paper')
+    playerSelections = 'paper';
+    playRound();
 };
 
 function playerSelectionIsScissor() {
-    console.log('scissor')
+    playerSelections = 'scissor';
+    playRound();
 };
+
+let playerSelections = '';
+
+
 
 // create a function that plays 1 round with 2 par: playerSelection and computerSelection
 function playRound(playerSelection, computerSelection) {
     computerSelection = getComputerChoice();
-    playerSelection = playerSelection();
+    playerSelection = playerSelections;
         if (playerSelection === computerSelection)
-            return roundScore = "It\'s a tie!";
+            console.log("It\'s a tie!");
         else if (playerSelection === "rock" && computerSelection === "scissor") {
             playerScore += 1;
-            return roundScore = "You win! Rock destroys Scissor";
+            console.log("You win! Rock destroys Scissor");
         } else if (playerSelection === "scissor" && computerSelection === "paper") {
             playerScore += 1;
-            return roundScore = "You win! Scissor cuts Paper";
+            console.log("You win! Scissor cuts Paper");
         } else if (playerSelection === "paper" && computerSelection === "rock") {
             playerScore += 1;
-            return roundScore = "You win! Paper covers Rock";
+            console.log("You win! Paper covers Rock");
         } else {
             computerScore += 1;
-            return roundScore = `You loose, The Computer overpowered you with ${computerSelection}`;
+            console.log(`You loose, The Computer overpowered you with ${computerSelection}`);
         }  
 } 
 
@@ -74,8 +72,8 @@ rockButton.addEventListener('click', playerSelectionIsRock);
 paperButton.addEventListener('click', playerSelectionIsPaper);
 scissorButton.addEventListener('click', playerSelectionIsScissor);
 
-function result() {
-alert(roundScore);
+function result() { 
+    alert(roundScore);
 if (playerScore > computerScore) {
     alert("Hurray! You won!");
 } else if (playerScore < computerScore){
