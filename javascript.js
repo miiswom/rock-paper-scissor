@@ -11,8 +11,7 @@ function getComputerChoice(choice) {
 }
 
 // create a function that asks for user input and return the correct word according to str.length
-function getPlayerSelection(result) {
-    result = prompt("Rock, paper or scissor?:");
+function playerSelection() {
     if (result.length === 4) {
         return "rock";
     } else if (result.length === 5) {
@@ -22,10 +21,22 @@ function getPlayerSelection(result) {
     }
 }
 
+function playerSelectionIsRock() {
+    console.log('rock')
+};
+
+function playerSelectionIsPaper() {
+    console.log('paper')
+};
+
+function playerSelectionIsScissor() {
+    console.log('scissor')
+};
+
 // create a function that plays 1 round with 2 par: playerSelection and computerSelection
 function playRound(playerSelection, computerSelection) {
     computerSelection = getComputerChoice();
-    playerSelection = getPlayerSelection();
+    playerSelection = playerSelection();
         if (playerSelection === computerSelection)
             return roundScore = "It\'s a tie!";
         else if (playerSelection === "rock" && computerSelection === "scissor") {
@@ -44,10 +55,26 @@ function playRound(playerSelection, computerSelection) {
 } 
 
 // create a loop that plays 5 rounds of the playRound function with an alert message at the end with the winner
+// Call the playRound function inside of this one to play a 5 round game that keeps score and reports a winner or loser at the end.
 // for (let i = 0; i < 5; i++) {
 //} 
 
-console.log(playRound());
+// console.log(playRound());
+
+
+
+// Add an event listener to the buttons that call your playRound function with the correct playerSelection every time a button is clicked.
+const buttons = document.getElementsByClassName("playerSelection");
+
+const rockButton = buttons[0];
+const paperButton = buttons[1];
+const scissorButton = buttons[2];
+
+rockButton.addEventListener('click', playerSelectionIsRock);
+paperButton.addEventListener('click', playerSelectionIsPaper);
+scissorButton.addEventListener('click', playerSelectionIsScissor);
+
+function result() {
 alert(roundScore);
 if (playerScore > computerScore) {
     alert("Hurray! You won!");
@@ -56,13 +83,11 @@ if (playerScore > computerScore) {
 } else {
     alert("TIE");
 }
+};
 
-
-
-
-//ROCK 4 
-//PAPER 5
-//SCISSOR 7 
+//ROCK 4 letters
+//PAPER 5 letters
+//SCISSOR 7 letters
 
 //console.log(playRound(playerSelection, computerSelection));
 // return a string that declares the winner of the round 'You lose! Paper beats Rock'
@@ -70,7 +95,6 @@ if (playerScore > computerScore) {
 
 
 // Write a NEW function called game(). 
-// Call the playRound function inside of this one to play a 5 round game that keeps score and reports a winner or loser at the end.
 
 
 
