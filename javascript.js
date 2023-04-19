@@ -10,7 +10,7 @@ function getComputerChoice(choice) {
     return choice[randomChoice].toString();
 }
 
-// create a function that asks for user input and return the correct word according to str.length
+// create a function for each button selection that calls the playround() with correct selection
 
 function playerSelectionIsRock() {
     playerSelections = 'rock';
@@ -32,36 +32,29 @@ let playerSelections = '';
 
 
 // create a function that plays 1 round with 2 par: playerSelection and computerSelection
+
 function playRound(playerSelection, computerSelection) {
     computerSelection = getComputerChoice();
     playerSelection = playerSelections;
         if (playerSelection === computerSelection)
-            console.log("It\'s a tie!");
+        div.textContent = 'It\'s a tie';
         else if (playerSelection === "rock" && computerSelection === "scissor") {
             playerScore += 1;
-            console.log("You win! Rock destroys Scissor");
+            div.textContent = "You win! Rock destroys Scissor";
         } else if (playerSelection === "scissor" && computerSelection === "paper") {
             playerScore += 1;
-            console.log("You win! Scissor cuts Paper");
+            div.textContent = "You win! Scissor cuts Paper";
         } else if (playerSelection === "paper" && computerSelection === "rock") {
             playerScore += 1;
-            console.log("You win! Paper covers Rock");
+            div.textContent = "You win! Paper covers Rock";
         } else {
             computerScore += 1;
-            console.log(`You loose, The Computer overpowered you with ${computerSelection}`);
+            div.textContent = `You loose, The Computer overpowered you with ${computerSelection}`;
         }  
 } 
 
-// create a loop that plays 5 rounds of the playRound function with an alert message at the end with the winner
-// Call the playRound function inside of this one to play a 5 round game that keeps score and reports a winner or loser at the end.
-// for (let i = 0; i < 5; i++) {
-//} 
-
-// console.log(playRound());
-
-
-
 // Add an event listener to the buttons that call your playRound function with the correct playerSelection every time a button is clicked.
+
 const buttons = document.getElementsByClassName("playerSelection");
 
 const rockButton = buttons[0];
@@ -83,27 +76,4 @@ if (playerScore > computerScore) {
 }
 };
 
-//ROCK 4 letters
-//PAPER 5 letters
-//SCISSOR 7 letters
-
-//console.log(playRound(playerSelection, computerSelection));
-// return a string that declares the winner of the round 'You lose! Paper beats Rock'
-// user input should be case-insensitive
-
-
-// Write a NEW function called game(). 
-
-
-
-
-
-
-//for(let i = 0; i < 5; i++) {
-//    console.log(playRound() + i) ;
-//} 
-
-
-// rock > scissor
-// scissor > paper
-// paper > rock
+let div = document.getElementById('result');
