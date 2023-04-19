@@ -36,23 +36,27 @@ let playerSelections = '';
 function playRound(playerSelection, computerSelection) {
     computerSelection = getComputerChoice();
     playerSelection = playerSelections;
-        if (playerSelection === computerSelection)
+        if (playerSelection === computerSelection) {
             div.textContent = 'It\'s a tie';
-        else if (playerSelection === "rock" && computerSelection === "scissor") {
+            finalScore();
+        } else if (playerSelection === "rock" && computerSelection === "scissor") {
             div.textContent = "You win! Rock destroys Scissor";
             pScore.textContent = playerScore += 1;
+            finalScore();
         } else if (playerSelection === "scissor" && computerSelection === "paper") {
             div.textContent = "You win! Scissor cuts Paper";
             pScore.textContent = playerScore += 1;
+            finalScore();
         } else if (playerSelection === "paper" && computerSelection === "rock") {
             div.textContent = "You win! Paper covers Rock";
             pScore.textContent = playerScore += 1;
+            finalScore();
         } else {
             div.textContent = `You loose, The Computer overpowered you with ${computerSelection}`;
             cScore.textContent = computerScore += 1;
-
-        }  
-} 
+            finalScore()
+        };
+}; 
 
 // Add an event listener to the buttons that call your playRound function with the correct playerSelection every time a button is clicked.
 
@@ -66,18 +70,23 @@ rockButton.addEventListener('click', playerSelectionIsRock);
 paperButton.addEventListener('click', playerSelectionIsPaper);
 scissorButton.addEventListener('click', playerSelectionIsScissor);
 
-function result() { 
-    alert(roundScore);
-if (playerScore > computerScore) {
-    alert("Hurray! You won!");
-} else if (playerScore < computerScore){
-    alert("Oh no! The computer has beaten you up...");
-} else {
-    alert("TIE");
-}
+function finalScore() {
+    if (playerScore >= 5 || computerScore >= 5) {
+        if (playerScore > computerScore) {
+            endScore.textContent = "Hurray! You won!";
+            window.location.reload();
+        } else if (playerScore < computerScore) {
+            endScore.textContent = "Oh no! The computer has beaten you up...";
+        } else {
+            endScore.textContent = "TIE";
+        }
+        window.location.reload();
+    } 
 };
 
 let div = document.getElementById('textResult');
 let cScore = document.getElementById('computerScore');
 let pScore = document.getElementById('playerScore');
+let endScore = document.getElementById('endScore');
+
 
