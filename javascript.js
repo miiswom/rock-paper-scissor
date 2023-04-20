@@ -1,16 +1,16 @@
-// set up the score and message to display in each round
+// Set up the score and message to display in each round
 let computerScore = 0;
 let playerScore = 0;
 let roundScore = "";
 
-// create a function that randomly return either 'rock, paper or scissor'
+// Create a function that randomly return either 'rock, paper or scissor'
 function getComputerChoice(choice) {
     choice = ["rock", "paper", "scissor"];
     const randomChoice = Math.floor(Math.random() * choice.length);
     return choice[randomChoice].toString();
 }
 
-// create a function for each button selection that calls the playround() with correct selection
+// Create a function for each button selection that calls the playround() with correct selection
 
 function playerSelectionIsRock() {
     playerSelections = 'rock';
@@ -31,26 +31,26 @@ let playerSelections = '';
 
 
 
-// create a function that plays 1 round with 2 par: playerSelection and computerSelection
+// Create a function that plays 1 round with 2 par: playerSelection and computerSelection
 
 function playRound(playerSelection, computerSelection) {
     computerSelection = getComputerChoice();
     playerSelection = playerSelections;
         if (playerSelection === computerSelection) {
             div.textContent = 'It\'s a tie';
-            finalScore();
+            finalScore()
         } else if (playerSelection === "rock" && computerSelection === "scissor") {
             div.textContent = "You win! Rock destroys Scissor";
             pScore.textContent = playerScore += 1;
-            finalScore();
+            finalScore()
         } else if (playerSelection === "scissor" && computerSelection === "paper") {
             div.textContent = "You win! Scissor cuts Paper";
             pScore.textContent = playerScore += 1;
-            finalScore();
+            finalScore()
         } else if (playerSelection === "paper" && computerSelection === "rock") {
             div.textContent = "You win! Paper covers Rock";
             pScore.textContent = playerScore += 1;
-            finalScore();
+            finalScore()
         } else {
             div.textContent = `You loose, The Computer overpowered you with ${computerSelection}`;
             cScore.textContent = computerScore += 1;
@@ -71,17 +71,20 @@ paperButton.addEventListener('click', playerSelectionIsPaper);
 scissorButton.addEventListener('click', playerSelectionIsScissor);
 
 function finalScore() {
-    if (playerScore >= 5 || computerScore >= 5) {
+    if(playerScore < 5 && computerScore < 5) {
+        return;
+    } else if (playerScore >= 6 || computerScore >= 6 ) {
         if (playerScore > computerScore) {
-            endScore.textContent = "Hurray! You won!";
+            alert("Hurray! You won!");
             window.location.reload();
         } else if (playerScore < computerScore) {
-            endScore.textContent = "Oh no! The computer has beaten you up...";
+            alert("Oh no! The computer has beaten you up...");
+            window.location.reload();
         } else {
-            endScore.textContent = "TIE";
+            alert("TIE");
+            window.location.reload();
         }
-        window.location.reload();
-    } 
+    }
 };
 
 let div = document.getElementById('textResult');
@@ -89,4 +92,10 @@ let cScore = document.getElementById('computerScore');
 let pScore = document.getElementById('playerScore');
 let endScore = document.getElementById('endScore');
 
-
+// toggle the start-game button class
+const startButton = document.getElementById('start-button');
+function startGame () {
+    let element = document.getElementById('myDiv');
+    element.style.display = 'block';
+    startButton.style.visibility = "hidden";
+}

@@ -1,6 +1,28 @@
+body {
+    background-color: darkslategray;
+};
+    
+#start-game {
+    width: 100%;
+    padding: 650px;
+    background-color: indigo;
+    color: white;
+    font-size: 25px;
+    box-sizing: border-box;
+};
+
+.hidden {
+    display: none;
+}
+
+.start {
+    width: 100px;
+    height: 100px;
+};
+    
 div {
     height: 100px;
     width: 100px;
     border-style : solid;  
-} 
+}; 
 

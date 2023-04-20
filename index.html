@@ -10,34 +10,39 @@
 </head>
 <body>
     <h1>ROCK, PAPER OR SCISSOR?</h1>
-    <div id="buttons">
-    <button class="playerSelection" id="rock">ROCK</button>
-    <button class="playerSelection" id="paper">PAPER</button>
-    <button class="playerSelection" id="scissor">SCISSOR</button>
-    </div>
-    
-    <br>
-    <div id="playerSelectionText">
-    </div>
-    
-    <br>
-    <div id="textResult">
-        <p>Who won?</p>
-    </div>
-
-    <br>
-    <div id="computerScore">
-        <p>Computer Score:</p>
-    </div>
-
-    <br>
-    <div id="playerScore">
-        <p>Player Score</p>
-    </div>
-    
-    <br>
-    <div id="endScore">
-        <p>Final Score</p>
+    <button id='start-button' class="start" onclick="startGame()">
+        START GAME
+    </button>
+    <div id='myDiv' style="display: none;">
+        <div id="buttons">
+            <button class="playerSelection" id="rock">ROCK</button>
+            <button class="playerSelection" id="paper">PAPER</button>
+            <button class="playerSelection" id="scissor">SCISSOR</button>
+        </div>
+            
+        <br>
+        <div id="playerSelectionText">
+        </div>
+            
+            <br>
+            <div id="textResult">
+                <p>Who won?</p>
+            </div>
+        
+            <br>
+            <div id="computerScore">
+                <p>Computer Score:</p>
+            </div>
+        
+            <br>
+            <div id="playerScore">
+                <p>Player Score</p>
+            </div>
+            
+            <br>
+            <div id="endScore">
+                <p>Final Score</p>
+            </div>
     </div>
 </body>
 </html>
