@@ -1,28 +1,10 @@
-body {
+* {
     background-color: darkslategray;
+    /* border: 3px red solid; */
 };
-    
-#start-game {
-    width: 100%;
-    padding: 650px;
-    background-color: indigo;
+
+button {
+    background-color: black;
     color: white;
-    font-size: 25px;
-    box-sizing: border-box;
+    text-align: center;
 };
-
-.hidden {
-    display: none;
-}
-
-.start {
-    width: 100px;
-    height: 100px;
-};
-    
-div {
-    height: 100px;
-    width: 100px;
-    border-style : solid;  
-}; 
-

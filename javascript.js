@@ -3,12 +3,32 @@ let computerScore = 0;
 let playerScore = 0;
 let roundScore = "";
 
+// toggle the start-game button class
+const startButton = document.getElementById('start-button');
+function startGame () {
+    let player = document.getElementById('player');
+    let computer = document.getElementById('computer');
+    player.style.display = 'inherit';
+    computer.style.display = 'inherit'
+    startButton.style.visibility = "hidden";
+}
+
 // Create a function that randomly return either 'rock, paper or scissor'
 function getComputerChoice(choice) {
     choice = ["rock", "paper", "scissor"];
     const randomChoice = Math.floor(Math.random() * choice.length);
     return choice[randomChoice].toString();
 }
+
+// Add an event listener to the buttons that call your playRound function with the correct playerSelection every time a button is clicked.
+
+const rockButton = document.getElementById('rock-button');
+const paperButton = document.getElementById('paper-button');
+const scissorButton = document.getElementById('scissor-button');
+
+rockButton.addEventListener('click', playerSelectionIsRock);
+paperButton.addEventListener('click', playerSelectionIsPaper);
+scissorButton.addEventListener('click', playerSelectionIsScissor);
 
 // Create a function for each button selection that calls the playround() with correct selection
 
@@ -29,51 +49,37 @@ function playerSelectionIsScissor() {
 
 let playerSelections = '';
 
-
-
 // Create a function that plays 1 round with 2 par: playerSelection and computerSelection
 
 function playRound(playerSelection, computerSelection) {
     computerSelection = getComputerChoice();
     playerSelection = playerSelections;
         if (playerSelection === computerSelection) {
-            div.textContent = 'It\'s a tie';
+            textResult.textContent = 'It\'s a tie';
             finalScore()
         } else if (playerSelection === "rock" && computerSelection === "scissor") {
-            div.textContent = "You win! Rock destroys Scissor";
+            textResult.textContent = "You win! Rock destroys Scissor";
             pScore.textContent = playerScore += 1;
             finalScore()
         } else if (playerSelection === "scissor" && computerSelection === "paper") {
-            div.textContent = "You win! Scissor cuts Paper";
+            textResult.textContent = "You win! Scissor cuts Paper";
             pScore.textContent = playerScore += 1;
             finalScore()
         } else if (playerSelection === "paper" && computerSelection === "rock") {
-            div.textContent = "You win! Paper covers Rock";
+            textResult.textContent = "You win! Paper covers Rock";
             pScore.textContent = playerScore += 1;
             finalScore()
         } else {
-            div.textContent = `You loose, The Computer overpowered you with ${computerSelection}`;
+            textResult.textContent = `You loose, The Computer overpowered you with ${computerSelection}`;
             cScore.textContent = computerScore += 1;
             finalScore()
         };
 }; 
 
-// Add an event listener to the buttons that call your playRound function with the correct playerSelection every time a button is clicked.
-
-const buttons = document.getElementsByClassName("playerSelection");
-
-const rockButton = buttons[0];
-const paperButton = buttons[1];
-const scissorButton = buttons[2];
-
-rockButton.addEventListener('click', playerSelectionIsRock);
-paperButton.addEventListener('click', playerSelectionIsPaper);
-scissorButton.addEventListener('click', playerSelectionIsScissor);
-
 function finalScore() {
     if(playerScore < 5 && computerScore < 5) {
         return;
-    } else if (playerScore >= 6 || computerScore >= 6 ) {
+    } else if (playerScore >= 5 || computerScore >= 5 ) {
         if (playerScore > computerScore) {
             alert("Hurray! You won!");
             window.location.reload();
@@ -87,15 +93,10 @@ function finalScore() {
     }
 };
 
-let div = document.getElementById('textResult');
-let cScore = document.getElementById('computerScore');
-let pScore = document.getElementById('playerScore');
-let endScore = document.getElementById('endScore');
 
-// toggle the start-game button class
-const startButton = document.getElementById('start-button');
-function startGame () {
-    let element = document.getElementById('myDiv');
-    element.style.display = 'block';
-    startButton.style.visibility = "hidden";
-}
+let textResult = document.getElementById('text-result');
+let cScore = document.getElementById('c-score');
+let pScore = document.getElementById('p-score');
+// let endScore = document.getElementById('endScore');
+
+
