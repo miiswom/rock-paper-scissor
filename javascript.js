@@ -76,18 +76,28 @@ function playRound(playerSelection, computerSelection) {
         };
 }; 
 
+let modal = document.getElementById('myModal');
+let winner = document.getElementById('winner');
+// let youWin = document.getElementsById('player-winner');
+// let youLoose = document.getElementById('player-loose');
+
+function openModal() {
+ modal.style.display = 'block';
+};
+
+
 function finalScore() {
     if(playerScore < 5 && computerScore < 5) {
         return;
     } else if (playerScore >= 5 || computerScore >= 5 ) {
         if (playerScore > computerScore) {
-            alert("Hurray! You won!");
-            window.location.reload();
+            openModal();
+            winner.textContent = 'Hurray you won!';
         } else if (playerScore < computerScore) {
-            alert("Oh no! The computer has beaten you up...");
-            window.location.reload();
+            openModal();
+            winner.textContent = 'Oh no! The computer has beaten you up...';
         } else {
-            alert("TIE");
+            alert("Error");
             window.location.reload();
         }
     }
