@@ -78,12 +78,19 @@ function playRound(playerSelection, computerSelection) {
 
 let modal = document.getElementById('myModal');
 let winner = document.getElementById('winner');
-let modalContent = document.querySelector('modal-content');
+let modalContent = document.getElementById('modal-content');
 // let youWin = document.getElementsById('player-winner');
 // let youLoose = document.getElementById('player-loose');
 
 function openModal() {
  modal.style.display = 'block';
+ if (playerScore > computerScore) {
+    winner.textContent = `Hurray you won ${pScore.textContent} against ${cScore.textContent}!`; 
+    modalContent.classList.add('player-wins');
+ } else if (playerScore < computerScore) {
+    winner.textContent = `Oh no! The computer has beaten you up ${cScore.textContent} against ${pScore.textContent}`;
+    modalContent.classList.add('computer-wins');
+ }
 };
 
 
@@ -91,16 +98,10 @@ function finalScore() {
     if(playerScore < 5 && computerScore < 5) {
         return;
     } else if (playerScore >= 5 || computerScore >= 5 ) {
-        if (playerScore > computerScore) {
-            openModal();
-            winner.textContent = `Hurray you won ${pScore.textContent} against ${cScore.textContent}!`;
-        } else if (playerScore < computerScore) {
-            openModal();
-            winner.textContent = `Oh no! The computer has beaten you up ${cScore.textContent} against ${pScore.textContent}`;
-        } else {
+        openModal();
+    } else {
             alert("Error");
-            window.location.reload();
-        }
+        window.location.reload();
     }
 };
 

@@ -11,17 +11,19 @@
         <h1 style="text-align: center; font-size: 40px;">ROCK, PAPER OR SCISSOR?</h1>
     </div>
     <div id="myModal" class="modal">
-        <div class="modal-content">
+        <div id="modal-content">
             <p id="winner"></p>
             <button onclick="window.location.reload()">PLAY AGAIN?</button>
         </div>
     </div>
     <div class="main-container" style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
         <div id="text-result"></div>
-        <div class="player-container" id="player" style="display:none">
-            <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+        <div class="player-container" id="player" style="display:none;">
+            <div class='score-container' class="score-container">
                 <div class="player-score" style="display: flex; justify-content: center; align-items: center; flex-direction: column">
-                    <div style="display: inherit"><h2>PLAYER</h2></div>
+                    <div style="display: inherit">
+                        <img src="index-finger-g2ae14ff2c_640.png">
+                        <h2>PLAYER</h2></div>
                     <div style="display: inherit;"><p>SCORE : <span id="p-score">0</span></p></div>
                 </div>
                     <div class="player-selection" style="display: flex; justify-content: center; align-items: center; flex-direction: row">
@@ -35,9 +37,11 @@
             <button id="start-button" onclick="startGame()">START</button>
         </div>
         <div class="computer-container" id="computer" style="display:none">
-            <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+            <div class="score-container">
             <div class="computer-score" style="display: flex; justify-content: center; align-items: center; flex-direction: column">
-                    <div style="display: inherit"><h2>COMPUTER</h2></div>
+                    <div style="display: inherit">
+                        <img src="laptop-g6376006c4_640.png">
+                        <h2>COMPUTER</h2></div>
                     <div style="display: inherit"><p>SCORE : <span id="c-score">0</span></p></div>
             </div>
                     <div class="computer-selection" style="display: flex; justify-content: center; align-items: center; flex-direction: row">

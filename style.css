@@ -1,4 +1,4 @@
-* {
+body {
     background-color: darkslategray;
     /* border: 3px red solid; */
 }
@@ -7,10 +7,13 @@ button {
     background-color: black;
     color: white;
     text-align: center;
+    padding: 20px;
+    margin: 5px;
 }
 
 #title {
     color: white;
+    border-bottom: solid black 3px;
 }
 
 .modal {
@@ -24,7 +27,8 @@ button {
     overflow: auto;
 }
 
-.modal-content {
+#modal-content {
+    text-align: center;
     margin: 15% auto;
     padding: 20px;
     border: 3px solid #888;
@@ -37,5 +41,37 @@ button {
 }
 
 #text-result {
-    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: auto;
+    margin: 5px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+}
+
+.score-container {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    flex-direction: column; 
+    border: solid black 3px;
+    padding: 20px;
+}
+
+img {
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+}
+
+.player-wins {
+    background-color: green;
+}
+
+.computer-wins {
+    background-color: red;
 }
