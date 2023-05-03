@@ -1,4 +1,4 @@
-body {
+* {
     background-color: darkslategray;
     /* border: 3px red solid; */
 }
@@ -74,4 +74,8 @@ img {
 
 .computer-wins {
     background-color: red;
+}
+
+.hidden {
+    display: none;
 }

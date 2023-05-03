@@ -79,17 +79,20 @@ function playRound(playerSelection, computerSelection) {
 let modal = document.getElementById('myModal');
 let winner = document.getElementById('winner');
 let modalContent = document.getElementById('modal-content');
+let thumbsUp = document.getElementById('thumbs-up');
+let thumbsDown = document.getElementById('thumbs-down');
 // let youWin = document.getElementsById('player-winner');
 // let youLoose = document.getElementById('player-loose');
 
 function openModal() {
- modal.style.display = 'block';
+modal.style.display = 'block';
+
  if (playerScore > computerScore) {
     winner.textContent = `Hurray you won ${pScore.textContent} against ${cScore.textContent}!`; 
-    modalContent.classList.add('player-wins');
+    thumbsDown.classList.toggle('hidden');
  } else if (playerScore < computerScore) {
     winner.textContent = `Oh no! The computer has beaten you up ${cScore.textContent} against ${pScore.textContent}`;
-    modalContent.classList.add('computer-wins');
+    thumbsUp.classList.toggle('hidden');
  }
 };
 
