@@ -15,26 +15,36 @@ function startGame () {
 
 
 // Create a function that randomly return either 'rock, paper or scissor'
-function getComputerChoice(choice) {
+function getComputerChoice(choice, result) {
     choice = ["rock", "paper", "scissor"];
     const randomChoice = Math.floor(Math.random() * choice.length);
-    return choice[randomChoice].toString();
+    result = choice[randomChoice].toString();
+    if (result === "rock") {
+            computerRockButton.classList.add('computer-clicks');
+            setTimeout( () => {
+                computerRockButton.classList.remove('computer-clicks');
+            }, 300);
+        } else if (result === "paper") {
+            computerPaperButton.classList.add('computer-clicks');
+            setTimeout( () => {
+                computerPaperButton.classList.remove('computer-clicks');
+            }, 300);
+        } else if (result === "scissor") {
+            computerScissorButton.classList.add('computer-clicks');
+            setTimeout( () => {
+                computerScissorButton.classList.remove('computer-clicks');
+            }, 300);
+        }; return result; 
 }
 
 // Add background color to the selected button
 const computerRockButton = document.getElementById('computer-selects-rock');
-const computerPaperButton = document.getElementById('computer-clicks-paper');
-const computerScissorButton = document.getElementById('computer-clicks-scissor');
+const computerPaperButton = document.getElementById('computer-selects-paper');
+const computerScissorButton = document.getElementById('computer-selects-scissor');
 
-function colorComputerChoice () {
-    if (choice === "rock") {
-        computerRockButton.classList.add('computer-clicks');
-    } else if (choice === "paper") {
-        computerRockButton.classList.add('computer-clicks');
-    } else if (choice === "scissor") {
-        computerScissorButton.classList.add('computer-clicks');
-    }
-};
+// function colorComputerChoice () {
+//     
+// };
 
 // Add an event listener to the buttons that call your playRound function with the correct playerSelection every time a button is clicked.
 
@@ -82,6 +92,7 @@ let playerSelections = '';
 function playRound(playerSelection, computerSelection) {
     computerSelection = getComputerChoice();
     playerSelection = playerSelections;
+    // colorComputerChoice();
         if (playerSelection === computerSelection) {
             textResult.textContent = 'It\'s a tie';
             finalScore()
