@@ -68,11 +68,11 @@ img {
     margin: 5px;
 }
 
-.player-wins {
-    background-color: green;
+.player-clicks {
+    background-color: blue;
 }
 
-.computer-wins {
+.computer-clicks {
     background-color: red;
 }
 

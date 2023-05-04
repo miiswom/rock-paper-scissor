@@ -13,12 +13,28 @@ function startGame () {
     startButton.style.visibility = "hidden";
 }
 
+
 // Create a function that randomly return either 'rock, paper or scissor'
 function getComputerChoice(choice) {
     choice = ["rock", "paper", "scissor"];
     const randomChoice = Math.floor(Math.random() * choice.length);
     return choice[randomChoice].toString();
 }
+
+// Add background color to the selected button
+const computerRockButton = document.getElementById('computer-selects-rock');
+const computerPaperButton = document.getElementById('computer-clicks-paper');
+const computerScissorButton = document.getElementById('computer-clicks-scissor');
+
+function colorComputerChoice () {
+    if (choice === "rock") {
+        computerRockButton.classList.add('computer-clicks');
+    } else if (choice === "paper") {
+        computerRockButton.classList.add('computer-clicks');
+    } else if (choice === "scissor") {
+        computerScissorButton.classList.add('computer-clicks');
+    }
+};
 
 // Add an event listener to the buttons that call your playRound function with the correct playerSelection every time a button is clicked.
 
@@ -34,17 +50,29 @@ scissorButton.addEventListener('click', playerSelectionIsScissor);
 
 function playerSelectionIsRock() {
     playerSelections = 'rock';
+    rockButton.classList.add('player-clicks');
     playRound();
+    setTimeout( () => {
+        rockButton.classList.remove('player-clicks');
+    }, 200);
 };
 
 function playerSelectionIsPaper() {
     playerSelections = 'paper';
+    paperButton.classList.add('player-clicks');
     playRound();
+    setTimeout( () => {
+        paperButton.classList.remove('player-clicks');
+    }, 200);
 };
 
 function playerSelectionIsScissor() {
     playerSelections = 'scissor';
+    scissorButton.classList.add('player-clicks');
     playRound();
+    setTimeout( () => {
+        scissorButton.classList.remove('player-clicks');
+    }, 200);
 };
 
 let playerSelections = '';
